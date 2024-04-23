@@ -2,6 +2,7 @@ import contextlib
 from pathlib import Path
 from PIL import Image
 from fastapi import FastAPI, File, UploadFile, WebSocket, WebSocketDisconnect
+from fastapi.middleware.cors import CORSMiddleware
 import asyncio
 import io
 
@@ -20,7 +21,10 @@ async def lifespan(app: FastAPI):
 object_detection = ObjectDetection()
     
 app = FastAPI(lifespan=lifespan)
-
+app.add_middleware(CORSMiddleware, allow_origins=["*"],
+    allow_credentials=True,  
+    allow_methods=["GET", "POST", "PUT", "DELETE"],  
+    allow_headers=["*"])
 
 async def receive(websocket: WebSocket, queue: asyncio.Queue):
     while True:
