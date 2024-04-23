@@ -23,7 +23,7 @@ const drawObjects = (video, canvas, objects) => {
 };
 
 const startObjectDetection = (video, canvas, deviceId) => {
-  const socket = new WebSocket(`wss://${location.host}/object-detection`);
+  const socket = new WebSocket(`https://${location.host}/object-detection`);
   let intervalId;
 
   // Connection opened
