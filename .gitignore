@@ -1,0 +1,6 @@
+object_detection_sample.py
+__pycache__
+.env
+.pytest_cache
+.vscode
+assets
