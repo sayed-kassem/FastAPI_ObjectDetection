@@ -3,4 +3,3 @@ __pycache__
 .env
 .pytest_cache
 .vscode
-assets
